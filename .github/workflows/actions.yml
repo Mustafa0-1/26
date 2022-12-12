@@ -25,14 +25,14 @@ jobs:
       - name: render configs
         run:
           mkdir diploy
-          cat docker-comp-ci.yaml | envsubst > diploy/docker.yaml
-          cat docker_ci_con.py | envsubst > diploy/docker.py
+          cat docker-compose-ci.yaml | envsubst > diploy/docker-composes.yaml
+          cat docker_ci_config.py | envsubst > diploy/docker_configs.py
       - name: copy files to server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          source: "diploy/docker.yaml,diploy/docker.py"
+          source: "diploy/docker-composes.yaml,diploy/docker_configs.py"
           target: "app_flask_ci"
           strip_components: 1

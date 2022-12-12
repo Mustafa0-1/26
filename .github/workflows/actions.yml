@@ -29,6 +29,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          source: "deploy/dockers-compose.yaml,deploy/dockers_config.py"
+          source: "deploy/docker-compose.yaml,deploy/docker_config.py"
           target: "app_flask_ci"
           strip_components: 1
